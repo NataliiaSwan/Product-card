@@ -1,27 +1,37 @@
 body {
   font-family: "Arial", sans-serif;
   background-color: #f5f5f5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 36px;
+  color: #1a4d4a;
+  text-align: center;
+  margin: 30px 0 20px 0;
+  font-weight: 700; /* робить текст трохи жирнішим */
+  letter-spacing: 1px; /* легка ширина між літерами */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Контейнер карток */
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  justify-content: center;
   padding: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
   background-color: #f9f9f9;
 }
 
+/* Картка */
 .card {
   display: flex;
   flex-direction: column;
+  cursor: default;
+  max-width: 300px;
 
-  width: 300px;
   padding: 20px;
   background: #fff;
   border-radius: 15px;
@@ -39,6 +49,7 @@ body {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .card img {
@@ -118,7 +129,7 @@ body {
 .info-btn:hover {
   background: #c4b06d;
 }
-/* @media (max-width: 980px) {
+@media (max-width: 980px) {
   .card {
     width: 45%;
   }
@@ -128,4 +139,102 @@ body {
   .card {
     width: 90%;
   }
-} */
+}
+
+/* Modal background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Modal box */
+.modal-content {
+  background: #fff;
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 12px;
+
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Close button */
+.close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.close:hover {
+  color: #ff4444;
+}
+
+/* Inputs */
+#buyForm input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Submit button */
+.buy-submit {
+  background: #20615b;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.buy-submit:hover {
+  background: #1a4d4a;
+}
+#modalPrice {
+  font-size: 18px;
+  font-weight: bold;
+  color: #20615b;
+  margin: 10px 0;
+}
+#successMessage {
+  font-size: 16px;
+  font-weight: bold;
+  color: #20615b;
+  background: #e0f7f1;
+  padding: 12px;
+  border-radius: 8px;
+}
+#modalImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50px;
+  margin: 10px 0;
+}
