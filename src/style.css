@@ -16,8 +16,7 @@ h1 {
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Контейнер карток */
-.cards-container {
+/* .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
@@ -27,6 +26,47 @@ h1 {
   background-color: #f9f9f9;
   background: linear-gradient(180deg, #fcfafa, #d9f8f0);
 }
+@media (max-width: 980px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+  }
+} */
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #fcfafa, #d9f8f0);
+}
+
+/* Планшети */
+@media (max-width: 980px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+}
+
+/* Телефони */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr; /* тільки одна колонка */
+    justify-items: center; /* картки по центру */
+    gap: 15px;
+  }
+}
 
 /* Картка */
 .card {
@@ -34,12 +74,18 @@ h1 {
   flex-direction: column;
   cursor: default;
   max-width: 300px;
-
+  max-width: 90%;
   padding: 20px;
   background: #fff;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+}
+@media (max-width: 768px) {
+  .card {
+    width: 100%; /* займає всю доступну ширину */
+    max-width: 400px; /* але не ширше ніж 400px */
+  }
 }
 
 .card-content {
@@ -132,11 +178,11 @@ h1 {
 .info-btn:hover {
   background: #c4b06d;
 }
-@media (max-width: 980px) {
+/* @media (max-width: 980px) {
   .card {
-    width: 45%;
+   
   }
-}
+} */
 
 @media (max-width: 768px) {
   .card {
