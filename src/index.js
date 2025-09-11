@@ -85,13 +85,13 @@ const products = [
 
 const container = document.getElementById("cards-container");
 
-// елементи модалки
 const modal = document.getElementById("buyModal");
 const closeBtn = document.querySelector(".close");
 const buyForm = document.getElementById("buyForm");
 const modalTitle = document.getElementById("modalTitle");
 const modalImg = document.getElementById("modalImg");
 const modalPrice = document.getElementById("modalPrice");
+const successMessage = document.getElementById("successMessage");
 
 let currentProduct = null;
 
@@ -117,7 +117,6 @@ products.forEach((product) => {
     </div>
   `;
 
-  // Buy Now → відкриваємо модальне вікно
   const buyBtn = card.querySelector(".buy-btn");
   buyBtn.addEventListener("click", () => {
     currentProduct = product;
@@ -126,9 +125,12 @@ products.forEach((product) => {
     modalImg.alt = product.title;
     modalPrice.textContent = `Price: ${product.price}`;
     modal.style.display = "block";
+
+    buyForm.style.display = "block";
+    successMessage.style.display = "none";
+    successMessage.textContent = "";
   });
 
-  // Learn More → просто алерт
   const infoBtn = card.querySelector(".info-btn");
   infoBtn.addEventListener("click", () => {
     alert(`More info about ${product.title} will appear here.`);
@@ -137,36 +139,38 @@ products.forEach((product) => {
   container.appendChild(card);
 });
 
-// Закриття модалки (по ✖️)
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-// Закриття по кліку на фон
 window.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.style.display = "none";
   }
 });
 
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    modal.style.display = "none";
+  }
+});
+
 buyForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
 
-  if (name && email) {
-    // Ховаємо форму
-    buyForm.style.display = "none";
-    // Показуємо повідомлення
-    successMessage.textContent = `✅ Thanks, ${name}! We'll contact you at ${email} to confirm your order of ${currentProduct.title} (${currentProduct.price}).`;
-    successMessage.style.display = "block";
+  if (name && email && currentProduct) buyForm.style.display = "none";
 
-    // Очищаємо форму
-    buyForm.reset();
+  successMessage.textContent = `🌸 Thanks, ${name}! We'll contact you at ${email} to confirm your order of ${currentProduct.title} (${currentProduct.price}).`;
+  successMessage.style.display = "block";
 
-    // Автоматично закриваємо модалку через 3 сек
-    setTimeout(() => {
-      modal.style.display = "none";
-    }, 4000);
-  }
+  buyForm.reset();
+
+  setTimeout(() => {
+    modal.style.display = "none";
+    buyForm.style.display = "block";
+    successMessage.style.display = "none";
+    successMessage.textContent = "";
+  }, 4000);
 });

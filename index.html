@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>>Natural Self-Care Products - Relax & Wellness</title>
+    <title>Natural Self-Care Products - Relax & Wellness</title>
     <meta
       name="description"
       content="Buy natural self-care products online. Aromatherapy candles, herbal teas, bath bombs, and more for relaxation and wellness."
@@ -12,7 +12,7 @@
       name="keywords"
       content="self-care, wellness, aromatherapy, candles, herbal tea, bath bombs, natural products"
     />
-    <!-- Open Graph (для соцмереж, коли ділиться посиланням) -->
+
     <meta
       property="og:title"
       content="Natural Self-Care Products – Relax & Wellness"
@@ -31,7 +31,6 @@
       content="https://natural-self-care-products.netlify.app/path-to-your-image.jpg"
     />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -54,7 +53,6 @@
 
     <div class="cards-container" id="cards-container"></div>
 
-    <!-- Modal -->
     <div id="buyModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -62,14 +60,12 @@
         <img id="modalImg" src="" alt="" />
         <p id="modalPrice"></p>
 
-        <!-- Форма замовлення -->
         <form id="buyForm">
           <input type="text" id="name" placeholder="Your Name" required />
           <input type="email" id="email" placeholder="Your Email" required />
           <button type="submit" class="buy-submit">Confirm Order</button>
         </form>
 
-        <!-- Повідомлення про успіх -->
         <div id="successMessage"></div>
       </div>
     </div>

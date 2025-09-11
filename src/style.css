@@ -16,31 +16,6 @@ h1 {
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* .cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  max-width: 1440px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
-  background: linear-gradient(180deg, #fcfafa, #d9f8f0);
-}
-@media (max-width: 980px) {
-  .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-  }
-}
-@media (max-width: 768px) {
-  .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-  }
-} */
-
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -51,7 +26,6 @@ h1 {
   background: linear-gradient(180deg, #fcfafa, #d9f8f0);
 }
 
-/* Планшети */
 @media (max-width: 980px) {
   .cards-container {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -59,16 +33,14 @@ h1 {
   }
 }
 
-/* Телефони */
 @media (max-width: 768px) {
   .cards-container {
-    grid-template-columns: 1fr; /* тільки одна колонка */
-    justify-items: center; /* картки по центру */
+    grid-template-columns: 1fr;
+    justify-items: center;
     gap: 15px;
   }
 }
 
-/* Картка */
 .card {
   display: flex;
   flex-direction: column;
@@ -83,8 +55,8 @@ h1 {
 }
 @media (max-width: 768px) {
   .card {
-    width: 100%; /* займає всю доступну ширину */
-    max-width: 400px; /* але не ширше ніж 400px */
+    width: 100%;
+    max-width: 400px;
   }
 }
 
@@ -178,11 +150,6 @@ h1 {
 .info-btn:hover {
   background: #c4b06d;
 }
-/* @media (max-width: 980px) {
-  .card {
-   
-  }
-} */
 
 @media (max-width: 768px) {
   .card {
@@ -190,7 +157,6 @@ h1 {
   }
 }
 
-/* Modal background */
 .modal {
   display: none;
   position: fixed;
@@ -203,7 +169,6 @@ h1 {
   background: rgba(0, 0, 0, 0.6);
 }
 
-/* Modal box */
 .modal-content {
   background: #fff;
   margin: 8% auto;
@@ -227,7 +192,6 @@ h1 {
   }
 }
 
-/* Close button */
 .close {
   float: right;
   font-size: 24px;
@@ -240,9 +204,8 @@ h1 {
   color: #ff4444;
 }
 
-/* Inputs */
 #buyForm input {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ddd;
@@ -250,13 +213,12 @@ h1 {
   font-size: 14px;
 }
 
-/* Submit button */
 .buy-submit {
   background: #20615b;
   color: #fff;
   border: none;
   padding: 12px;
-  width: 100%;
+  width: 90%;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
@@ -273,6 +235,7 @@ h1 {
   margin: 10px 0;
 }
 #successMessage {
+  display: none;
   font-size: 16px;
   font-weight: bold;
   color: #20615b;
